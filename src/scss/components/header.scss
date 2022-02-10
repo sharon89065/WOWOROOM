@@ -1,0 +1,48 @@
+@use '../util/' as *;
+
+.header {
+  padding: rem(20) rem(15);
+  border-bottom: rem(40) solid var(--text);
+  .d-flex {
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    font-weight: 900;
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    font-size: rem(20);
+    z-index: 1;
+    a:hover {
+      color: var(--text-purple);
+    }
+    @include breakpoint-down(tablet) {
+      flex-direction: column;
+      position: absolute;
+      right: 0;
+      top: rem(76);
+      bottom: 0;
+      padding: rem(15);
+      li {
+        margin-bottom: rem(48);
+      }
+      &.is-hidden {
+        display: none;
+      }
+    }
+    @include breakpoint-up(tablet) {
+      li:not(:last-child) {
+        margin-right: rem(48);
+      }
+    }
+    &-icon {
+      position: relative;
+      @include breakpoint-up(tablet) {
+        display: none;
+      }
+    }
+  }
+}

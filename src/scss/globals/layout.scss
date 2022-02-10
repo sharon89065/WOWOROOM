@@ -1,0 +1,16 @@
+@use '../util' as *;
+
+.container {
+  max-width: rem(1110);
+  margin: auto;
+  &-py {
+    padding-top: rem(48);
+    padding-bottom: rem(48);
+  }
+}
+.d-flex {
+  display: flex;
+}
+.overflow-wrap {
+  overflow-x: scroll;
+}

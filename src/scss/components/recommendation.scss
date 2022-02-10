@@ -1,0 +1,50 @@
+@use '../util/' as *;
+
+.recommend {
+  h3 {
+    color: var(--white);
+  }
+  background-color: var(--bg-drakPurple);
+  &__wall {
+    overflow-x: scroll;
+  }
+  &__gallery {
+    &-top {
+      display: flex;
+      margin-left: rem(95);
+    }
+    &-bottom {
+      display: flex;
+    }
+  }
+  &__card {
+    display: flex;
+    min-width: rem(350);
+    margin-right: rem(30);
+    margin-bottom: rem(20);
+    background: var(--white);
+    p {
+      font-size: rem(16);
+    }
+    img {
+      width: rem(95);
+      height: rem(96);
+      margin-right: rem(16);
+    }
+  }
+  &__content {
+    img {
+      width: rem(40);
+      height: rem(40);
+    }
+  }
+  &__account {
+    display: flex;
+    margin-top: rem(13);
+    margin-bottom: rem(9);
+  }
+
+  &__text {
+    color: var(--text-purple);
+  }
+}

@@ -1,0 +1,32 @@
+@use '../util/' as *;
+
+.furniture-compare {
+  background-color: var(--bg-gray);
+  &__table {
+    margin: auto;
+    width: 80%;
+    font-size: rem(20);
+    text-align: center;
+    border-collapse: collapse;
+    @include breakpoint-down(mobile) {
+      width: 100%;
+    }
+
+    th,
+    td {
+      padding: rem(15) rem(12);
+      border-bottom: 1px solid var(--border-gray);
+    }
+    tr td:first-child {
+      text-align: left;
+    }
+    @include breakpoint-down(tablet) {
+      font-size: rem(14);
+    }
+  }
+  .material-icons {
+    color: #6a33ff;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+}

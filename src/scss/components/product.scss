@@ -1,0 +1,68 @@
+@use '../util/' as *;
+
+.product {
+  padding: rem(20) rem(15);
+  text-align: left;
+  &__select {
+    min-width: rem(255);
+    min-height: rem(38);
+    padding: rem(8) rem(12);
+    margin-bottom: rem(30);
+    color: var(--text-gray);
+    text-indent: rem(10);
+    border: rem(1) solid #ced4da;
+    border-radius: rem(5);
+  }
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__card {
+    display: inline-block;
+    width: 23%;
+    margin-right: 2%;
+    margin-bottom: rem(20);
+    position: relative;
+    @include breakpoint-down(desktop) {
+      width: 48%;
+    }
+    @include breakpoint-down(mobile) {
+      width: 100%;
+    }
+    h3 {
+      padding: rem(8) 0;
+      margin-bottom: 0;
+      font-weight: 400;
+      text-align: left;
+      font-size: rem(20);
+    }
+    img {
+      vertical-align: top;
+      max-height: 300px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__type {
+    position: absolute;
+    top: rem(20);
+    right: rem(-3);
+    padding: rem(8) rem(24);
+    margin: 0;
+    font-weight: 400;
+    background: var(--text);
+    color: var(--white);
+  }
+  &__add {
+    display: block;
+    padding: rem(11);
+    background: var(--text);
+    color: var(--white);
+    text-align: center;
+  }
+  &__price {
+    &-now {
+      font-size: rem(28);
+    }
+  }
+}

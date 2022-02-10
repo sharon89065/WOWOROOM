@@ -1,0 +1,73 @@
+@use '../util/' as *;
+
+.transport {
+  &__intro {
+    display: flex;
+    align-items: center;
+    max-width: rem(650);
+    margin: 0 auto;
+    @include breakpoint-down(mobile) {
+      flex-direction: column;
+    }
+    li:nth-child(1),
+    li:nth-child(2),
+    li:nth-child(3) {
+      position: relative;
+    }
+    li:nth-child(1)::after,
+    li:nth-child(2)::after,
+    li:nth-child(3)::after {
+      content: '';
+      display: block;
+      @include breakpoint-up(mobile) {
+        position: absolute;
+        top: 50%;
+        right: rem(20);
+        border: rem(10) solid #000000;
+        border-top: rem(10) solid transparent;
+        border-right: rem(10) solid transparent;
+        border-bottom: rem(10) solid transparent;
+      }
+      @include breakpoint-down(mobile) {
+        margin-top: rem(20);
+        border: rem(10) solid #000000;
+        border-left: rem(10) solid transparent;
+        border-right: rem(10) solid transparent;
+        border-bottom: rem(10) solid transparent;
+      }
+    }
+  }
+  &__card {
+    min-width: rem(115);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .cardImg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: rem(115);
+      height: rem(115);
+      border: rem(3) solid #000000;
+      border-radius: 50%;
+    }
+    .material-icons {
+      font-size: 50px;
+    }
+    h4 {
+      font-size: rem(20);
+      margin: rem(15) 0;
+    }
+    p {
+      font-size: rem(16);
+    }
+  }
+  &__card:not(:last-child) {
+    padding-right: rem(75);
+    @include breakpoint-down(mobile) {
+      padding-right: 0;
+      padding-bottom: rem(20);
+    }
+  }
+}
