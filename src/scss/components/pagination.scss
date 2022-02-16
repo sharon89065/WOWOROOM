@@ -5,6 +5,7 @@
   font-size: rem(16);
   &__list {
     display: flex;
+    justify-content: space-between;
     max-width: rem(400);
     margin: auto;
     padding: rem(5) rem(2);
@@ -17,10 +18,13 @@
       justify-content: center;
     }
     li:not(:last-child) {
-      margin-right: rem(10);
+      margin-right: rem(5);
     }
     li:hover {
       cursor: pointer;
+    }
+    @include breakpoint-down(mobile) {
+      min-width: rem(345);
     }
   }
   &__icon {

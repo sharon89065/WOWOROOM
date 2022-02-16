@@ -1,7 +1,3 @@
-import menuAnimation from './menu-toggle';
-
-const init = () => {
-  menuAnimation();
-};
+import init from './init';
 
 init();

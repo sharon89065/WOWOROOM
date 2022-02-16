@@ -17,3 +17,5 @@
 - 利用線上課程提供 API，並使用 axios 套件做到購物車新增、刪除、修改功能
 
 ## 4.使用 Validate.js 套件執行基本表單驗證
+
+網址：[validatejs](https://validatejs.org/#examples)

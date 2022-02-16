@@ -13,7 +13,7 @@
     }
   }
   &__formGroup {
-    margin-bottom: rem(28);
+    margin-bottom: rem(20);
     @include breakpoint-down(mobile) {
       margin-bottom: rem(15);
     }
@@ -23,9 +23,9 @@
   }
   &__inputWrap {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     @include breakpoint-down(mobile) {
-      flex-direction: column;
       align-items: flex-start;
     }
   }
@@ -43,9 +43,7 @@
   &__message {
     font-size: rem(16);
     color: var(--text-red);
-    @include breakpoint-down(mobile) {
-      margin-top: rem(5);
-    }
+    margin-top: rem(5);
   }
   &__btn {
     align-self: center;
@@ -55,6 +53,10 @@
     border-radius: rem(4);
     font-size: rem(16);
     color: var(--white);
+    &.disabled {
+      background-color: #464545ad;
+      color: #ffffffc4;
+    }
   }
   &__btn:hover {
     cursor: pointer;
