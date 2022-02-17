@@ -307,6 +307,13 @@
                 <option value="窗簾">窗簾</option>
             </select>
             <ul class="product__wrap productWrap">
+                <div class="loading">
+                    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30">
+                        </circle>
+                    </svg>
+                </div>
                 <!-- <li class="product__card productCard">
                     <h4 class="product__type">新品</h4>
                     <img src="./images/bt1lsT2.png" alt="Antony 雙人床架／雙人加大">
@@ -356,8 +363,8 @@
             <h3>我的購物車</h3>
             <div class="overflow-wrap">
 
-                <table class="shoppingcart__table">
-                    <tr>
+                <table class="shoppingcart__table shoppingcartTable">
+                    <!-- <tr>
                         <th width="40%">品項</th>
                         <th>單價</th>
                         <th>數量</th>
@@ -397,12 +404,12 @@
                         <td>
                             <div class="shoppingcart__amount">
                                 <div class="shoppingcart__amount-btn decreaseBtn">-</div>
-                                <input type="number" class="number js-numberInput" min="0" />
+                                <input type="number" class="number numberInput" min="0" />
                                 <div class="shoppingcart__amount-btn  increaseBtn">+</div>
                             </div>
                         </td>
                         <td>NT$12,000</td>
-                        <td class="shoppingcart__discardBtn discardBtn">
+                        <td class="shoppingcart__discardBtn discardBtn discartSpecBtn">
                             <a href="#" class="material-icons">
                                 clear
                             </a>
@@ -410,7 +417,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <a href="#" class="shoppingcart__discardBtn-all">刪除所有品項</a>
+                            <a href="#" class="shoppingcart__discardBtn-all discardAllBtn">刪除所有品項</a>
                         </td>
                         <td></td>
                         <td></td>
@@ -418,7 +425,7 @@
                             <p>總金額</p>
                         </td>
                         <td>NT$13,980</td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
         </div>

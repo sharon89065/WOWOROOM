@@ -1,5 +1,6 @@
-import { api_path } from './config';
-// import { getCartlist } from './all';
+import { getCartlistData, postOrder } from './getData-api';
+import { renderCartlist } from './render';
+
 const constraints = {
   姓名: {
     presence: { message: '不可留空' },
@@ -23,34 +24,13 @@ const bindFormEventListener = () => {
   const inputs = document.querySelectorAll(
     'input[type=text],input[type=tel],input[type=email]'
   );
-  //   const postOrder = (name, tel, email, address, payment) => {
-  //     axios
-  //       .post(
-  //         `https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/orders`,
-  //         {
-  //           data: {
-  //             user: {
-  //               name: name,
-  //               tel: tel,
-  //               email: email,
-  //               address: address,
-  //               payment: payment,
-  //             },
-  //           },
-  //         }
-  //       )
-  //       .then((res) => {
-  //         console.log(res);
-  //         getCartlist();
-  //       });
-  //   };
+
   inputs.forEach((item) => {
     item.addEventListener('change', () => {
       if (!item.textContent) {
         item.nextElementSibling.textContent = '';
       }
       const errors = validate(form, constraints);
-      //   console.log(`errors`, errors);
       if (errors) {
         console.log(Object.keys(errors)); //keys：屬性名
         Object.keys(errors).forEach((key) => {
@@ -65,17 +45,25 @@ const bindFormEventListener = () => {
       }
     });
   });
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.querySelector('#customerName').value;
-    const tel = document.querySelector('#customerPhone').value;
-    const email = document.querySelector('#customerEmail').value;
-    const address = document.querySelector('#customerEmail').value;
-    const payment = document.querySelector('#tradeWay').value;
-
-    // postOrder(name, tel, email, address, payment);
-
-    form.reset();
+  form.addEventListener('submit', async (e) => {
+    try {
+      e.preventDefault();
+      const name = document.querySelector('#customerName').value;
+      const tel = document.querySelector('#customerPhone').value;
+      const email = document.querySelector('#customerEmail').value;
+      const address = document.querySelector('#customerEmail').value;
+      const payment = document.querySelector('#tradeWay').value;
+      const { data: res } = await getCartlistData();
+      if (res.carts.length === 0) {
+        return alert(`目前購物車是空的喔～`);
+      }
+      await postOrder(name, tel, email, address, payment);
+      alert(`訂單建立成功🙌`);
+      renderCartlist(res.carts, res);
+      form.reset();
+    } catch (error) {
+      console.error(error);
+    }
   });
 };
 export default bindFormEventListener;

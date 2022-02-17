@@ -53,6 +53,7 @@
     border-radius: rem(4);
     font-size: rem(16);
     color: var(--white);
+    border: 0;
     &.disabled {
       background-color: #464545ad;
       color: #ffffffc4;

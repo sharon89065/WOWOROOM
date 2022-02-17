@@ -1,13 +1,13 @@
 import menuAnimation from './menu-toggle';
 import bindFormEventListener from './form-validate';
-import { getProductListData } from './products-api';
-
-import { filterCategory } from './filter-productlists';
+import initProductList from './product-list';
+import initShoppingcart from './shoppingcart-list';
 
 const init = () => {
   menuAnimation();
   bindFormEventListener();
-  getProductListData();
+  initProductList();
+  initShoppingcart();
 };
 
 export default init;
