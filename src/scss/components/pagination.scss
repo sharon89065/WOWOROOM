@@ -1,49 +1,60 @@
 @use '../util/' as *;
 
 .pagination {
-  padding: rem(20) rem(15);
-  font-size: rem(16);
-  &__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ul {
     display: flex;
-    justify-content: space-between;
-    max-width: rem(400);
-    margin: auto;
-    padding: rem(5) rem(2);
-    border: rem(1) solid var(--border-gray);
+
+    align-items: center;
+    justify-content: center;
+    padding: rem(5);
+    margin-bottom: rem(20);
+    background: rgb(255, 255, 255);
+    border: rem(1) solid var(--bg-drakPurple);
     border-radius: rem(50);
-    line-height: rem(24);
-    color: var(--text-darkGray);
+    box-shadow: rem(0) rem(10) rem(15) rgba(0, 0, 0, 0.1);
     li {
-      display: flex;
-      justify-content: center;
-    }
-    li:not(:last-child) {
-      margin-right: rem(5);
-    }
-    li:hover {
+      color: var(--bg-drakPurple);
+      list-style: none;
+      line-height: rem(24);
+      text-align: center;
+      font-size: rem(16);
+      font-weight: 500;
       cursor: pointer;
+      user-select: none;
+      transition: all 0.3s ease;
     }
-    @include breakpoint-down(mobile) {
-      min-width: rem(345);
+    li.numb {
+      height: rem(24);
+      width: rem(24);
+      margin: 0 rem(5);
+      border-radius: 50%;
     }
-  }
-  &__icon {
-    transition: all 0.1s ease-in;
-  }
-  &__icon:hover {
-    transform: scale(1.2, 1.2);
-    color: var(--text);
-  }
-  &__numb {
-    min-width: rem(24);
-    transition: all 0.02s ease-in;
-  }
-  &__numb:hover,
-  li.active {
-    background: var(--text);
-    border-radius: 50%;
-    color: var(--white);
-  }
-  &__dots {
+
+    li.dots {
+      margin: 0 rem(5);
+      font-size: rem(16);
+      cursor: default;
+    }
+    li.btn {
+      display: flex;
+      align-items: center;
+      padding: 0 rem(5);
+    }
+    li.prev {
+      border-radius: rem(25) rem(5) rem(5) rem(25);
+    }
+    li.next {
+      border-radius: rem(5) rem(25) rem(25) rem(5);
+    }
+    li.active,
+    li.numb:hover,
+    li:first-child:hover,
+    li:last-child:hover {
+      color: #fff;
+      background: var(--bg-drakPurple);
+    }
   }
 }
